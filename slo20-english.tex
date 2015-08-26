@@ -1,0 +1,139 @@
+\documentclass[english,slovene]{slo20}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\pubyear{2015}
+\volume{1}
+\issue{1}
+\pubnum{02}
+\pages{1}{20}
+
+\authors{%
+\name{John Doe, Jane Example}
+\affiliation{%
+Magic and Macaroons Lab, University of Southern Atlantis\\
+The Republic, Utopia}
+\name{Larry Feelgood}
+\affiliation{%
+ACME Research Group, University of Entenhausen\\
+Entenhausen, Germany}
+}{%
+Doe, J., Example, J., Feelgood, L.}
+
+\title{Slovenščina 2.0 \LaTeX\ template}
+
+\naslov{Slovenščina 2.0 \LaTeX\ predloga}
+
+\abstract{%
+Abstract in English. Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. Quisque mattis molestie porta. Vestibulum ac libero in ex imperdiet
+dignissim. Maecenas id ex fermentum, accumsan leo sit amet, pellentesque
+nisl. Vestibulum mollis tempor purus. Aenean feugiat sem erat, quis cursus
+lacus ultricies eu. Mauris quis velit justo. Phasellus interdum felis nec
+turpis varius, sed vestibulum nisi tristique. Aliquam at neque nec ex
+porta dapibus.
+}
+
+\keywords{Keyword, keyword, keyword, keyword}
+
+\povzetek{%
+Povzetek v Slovenščini. Suspendisse sagittis augue ac leo sodales, in
+dictum magna molestie. Etiam gravida in lectus sed porttitor. Pellentesque
+fermentum felis ipsum, et lacinia felis accumsan nec. Etiam aliquam semper
+purus id sodales. Nullam luctus facilisis ligula, ut aliquet ipsum
+tincidunt nec. Etiam non velit ut nisl facilisis suscipit. In ut egestas
+nisl, at vulputate tellus.  Curabitur sit amet sagittis sapien.
+}
+
+\kljucneBesede{Ključna beseda, ključna beseda, ključna beseda, ključna
+beseda}
+
+\begin{document}
+
+\section{First section}
+
+\subsection{First subsection}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mattis
+molestie porta. Vestibulum ac libero in ex imperdiet dignissim. Maecenas
+id ex fermentum, accumsan leo sit amet, pellentesque nisl. Vestibulum
+mollis tempor purus. Aenean feugiat sem erat, quis cursus lacus ultricies
+eu. Mauris quis velit justo. Phasellus interdum felis nec turpis varius,
+sed vestibulum nisi tristique. Aliquam at neque nec ex porta dapibus.
+
+Suspendisse\footnote{ Nulla sed pulvinar mauris.} potenti. Pellentesque in
+magna eget neque porta tempus at vitae massa. Mauris gravida turpis nisl.
+Aenean at nisi purus. Cras vitae accumsan quam. Aenean pretium purus ut
+turpis semper fringilla. Praesent euismod eget ante vel varius. Fusce
+volutpat ex interdum sodales auctor.  Cras bibendum gravida lorem vel
+consectetur. Nulla sed pulvinar mauris.  Sed a ipsum elementum, maximus
+neque a, malesuada nunc. Morbi dui ligula, vulputate eu dignissim vel,
+interdum nec ex. Ut bibendum accumsan arcu, in suscipit sapien egestas
+sed. Aliquam viverra eu sem sodales consequat.\footnote{Aenean feugiat sem
+erat, quis cursus lacus ultricies eu. Mauris quis velit justo. Vestibulum
+ac libero in ex imperdiet dignissim. Maecenas id ex fermentum, accumsan
+leo sit amet, pellentesque nisl. Curabitur sit amet sagittis sapien.}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.75]{trojina}
+\caption{%
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+\end{figure}
+
+\subsection{Second subsection}
+
+\subsubsection{First subsubsection}
+
+Quisque tristique tempus orci, ac finibus diam consectetur eu. Nulla metus
+mi, condimentum nec nisi eget, convallis pretium tellus. Integer
+sollicitudin porta auctor. Praesent euismod, quam nec ullamcorper
+tristique, risus lacus volutpat lorem, eu accumsan velit elit eu orci.
+Donec eu velit blandit, consequat lorem ac, efficitur massa. Nulla a sem
+bibendum ipsum dictum vestibulum. Aliquam mi ex, posuere laoreet nulla
+quis, feugiat rutrum nisi. 
+
+\subsubsection{Second subsubsection}
+
+Aliquam vehicula felis vitae quam dapibus, a egestas magna dictum. Vivamus
+vulputate sit amet ante sed accumsan. Maecenas vel augue a diam elementum
+malesuada. Morbi mattis libero tellus, ut luctus felis accumsan eu.
+Aliquam sollicitudin molestie nisi, vel tincidunt felis. Vestibulum
+accumsan vitae metus eu posuere. Nulla eget fermentum dui, vitae
+scelerisque ipsum. Nunc gravida, massa a iaculis porta, diam arcu mattis
+ipsum, quis porta lectus enim id massa. Donec a neque ut mi rutrum
+efficitur sagittis quis ipsum \citep{creativecommons}. Praesent sed
+egestas purus. Morbi sollicitudin accumsan tellus, sit amet efficitur est
+maximus vel \citep{gorjanc2005studije,erjavec2010text}. Sed ultrices
+commodo posuere \citet{biber1998corpus}.
+
+\begin{table}
+\centering
+\begin{tabular}{crrr}
+\toprule
+Lorem & 23 & 0.566  & 99  \\
+\midrule 
+Ipsum & 45 & 0.839  & 173 \\ \rowline
+Dolor & 30 & 0.240  & 245 \\ \rowline
+Sit   & 11 & 0.140  & 847 \\ \rowline
+Amet  & 99 & 54.222 & 520 \\
+\bottomrule
+\end{tabular}
+\caption{%
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+\end{table}
+
+\section*{Acknowledgments}
+
+Pellentesque leo mi, luctus vel risus ac, vehicula condimentum lacus.  Mauris
+metus eros, sollicitudin eget efficitur quis, sagittis nec neque.  Aliquam ut
+purus a ligula interdum sagittis sit amet in diam. 
+
+\nocite{*} % Remove this line in your manuscript
+
+\bibliographystyle{slo20}
+\bibliography{slo20}
+
+\end{document}
+
