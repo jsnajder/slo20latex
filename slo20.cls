@@ -1,10 +1,14 @@
 % Slovenscina 2.0 LaTeX class definition
 % (c) 2015 Jan Snajder
 % Version: 1.0, 2015-08-25
+%
+% Change log:
+%   2015-08-26 (Jan Snajder)   First version
+%
 
-% ------------------------------------
+% ----------------------------------------------------------------------------
 % Class identification
-% ------------------------------------
+% ----------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{slo20}[2015/08/25 Slovenscina 2.0 class]
@@ -15,10 +19,9 @@
 
 \RequirePackage[utf8]{inputenc}
 
-
-% ------------------------------------
-% Options declarations
-% ------------------------------------
+% ----------------------------------------------------------------------------
+% Options declarations and processing
+% ----------------------------------------------------------------------------
 
 \def\@georgia{0}
 \DeclareOption{georgia}{%
@@ -39,19 +42,17 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
-% ------------------------------------
-% Process options
-% ------------------------------------
-
 \ProcessOptions\relax
 
-% ------------------------------------
-% Formatting
-% ------------------------------------
+% ----------------------------------------------------------------------------
+% Article class
+% ----------------------------------------------------------------------------
 
 \LoadClass[10pt,a4paper]{article}
 
+% ----------------------------------------------------------------------------
 % Paper metadata
+% ----------------------------------------------------------------------------
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \def\@pubyear{\red{2015}}
@@ -89,37 +90,45 @@
   \def\@authorsshort{#2}
 }
 
+% ----------------------------------------------------------------------------
 % Page size and fonts
+% ----------------------------------------------------------------------------
 
 \RequirePackage[paperwidth=16cm,paperheight=23cm,top=3cm,bottom=3.25cm,left=1.9cm,right=1.9cm,footskip=2cm]{geometry}
 \renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
 \RequirePackage{setspace}
 \linespread{1.4}
 
+% ----------------------------------------------------------------------------
 % Paragraphs
+% ----------------------------------------------------------------------------
 
 \setlength{\parskip}{0.8em}
 \setlength{\parindent}{0cm}
 
+% ----------------------------------------------------------------------------
 % Lists
+% ----------------------------------------------------------------------------
 
 \RequirePackage{enumitem}
 \setlist{nolistsep}
 \setlist[itemize]{leftmargin=*,labelsep=1em}
 \setlist[itemize,1]{label=--}
 
+% ----------------------------------------------------------------------------
 % Colors
+% ----------------------------------------------------------------------------
 
 \RequirePackage[usenames,dvipsnames]{color}
 \definecolor{slogray}{rgb}{0.35,0.35,0.35}
 \definecolor{lightgray}{rgb}{0.75,0.75,0.75}
 \newcommand{\slourl}[1]{{\footnotesize\textcolor{slogray}{#1}}}
 
-% TODO: WHY?
-
 \RequirePackage{microtype}
 
+% ----------------------------------------------------------------------------
 % Header and footers
+% ----------------------------------------------------------------------------
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
@@ -130,7 +139,9 @@
 \renewcommand{\footrulewidth}{0pt}
 \fancyfoot[CO,CE]{[\hspace{0.2ex}\thepage\hspace{0.2ex}]}
 
-% Sections, subsections, and subsubsections
+% ----------------------------------------------------------------------------
+% Sections
+% ----------------------------------------------------------------------------
 
 \RequirePackage[compact]{titlesec}
 \titleformat{\section}{\lsstyle\small\bfseries}{\small\bfseries\thesection}{1ex}{\MakeUppercase}{}
@@ -140,28 +151,48 @@
 \titlespacing*{\subsection}{0pt}{0.5em}{0em}
 \titlespacing*{\subsubsection}{0pt}{0.5em}{0em}
 
+% ----------------------------------------------------------------------------
 % Footnotes
+% ----------------------------------------------------------------------------
 
 \RequirePackage[hang,flushmargin]{footmisc} 
 \renewcommand{\footnotemargin}{0.00001pt}
 \renewcommand{\footnotelayout}{\hspace{7pt}}
 
+% ----------------------------------------------------------------------------
 % URLs
+% ----------------------------------------------------------------------------
 
 \RequirePackage{url}
 \RequirePackage{relsize}
 \renewcommand\UrlFont{\smaller[1]\color{slogray}\rmfamily}
 
+% ----------------------------------------------------------------------------
+% Tables
+% ----------------------------------------------------------------------------
+
+\RequirePackage{colortbl}
+\RequirePackage{booktabs}
+\newcommand{\rowline}[0]{%
+\arrayrulecolor{lightgray}\midrule\arrayrulecolor{black}}
+
+
+% ----------------------------------------------------------------------------
 % Captions
+% ----------------------------------------------------------------------------
 
 \RequirePackage{caption}
 \captionsetup{labelsep=colon,justification=justified,singlelinecheck=off,labelfont={small,bf},font={small}}
 
+% ----------------------------------------------------------------------------
 % Language
+% ----------------------------------------------------------------------------
 
 \if\@slovene1\RequirePackage[slovene]{babel}\fi
 
+% ----------------------------------------------------------------------------
 % Bibliography
+% ----------------------------------------------------------------------------
 
 \RequirePackage{natbib}
 \renewcommand*{\bibfont}{\raggedright} 
@@ -179,7 +210,9 @@
 \if\@english1{\renewcommand{\refname}{\textls*[110]{BIBLIOGRAPHY}}\else{%
 \addto{\captionsslovene}{\renewcommand{\refname}{\textls*[110]{LITERATURA}}}}\fi
 
+% ----------------------------------------------------------------------------
 % Front matter
+% ----------------------------------------------------------------------------
 
 \newcommand{\name}[1]{%
 {\large #1\newline}}
@@ -208,7 +241,9 @@ URL: \slourl{\@puburl}.}\end{spacing}}
 \fi}
 }
 
-% Epilogue
+% ----------------------------------------------------------------------------
+% Back matter
+% ----------------------------------------------------------------------------
 
 \newcommand{\makeepilogue}[0]{%
 \begin{flushleft}
@@ -228,7 +263,9 @@ URL: \slourl{\@puburl}.}\end{spacing}}
 \fi}
 }
 
+% ----------------------------------------------------------------------------
 % License page
+% ----------------------------------------------------------------------------
 
 \newenvironment{nopgbreak}
   {\par\nobreak\vfil\penalty0\vfilneg
@@ -250,7 +287,9 @@ License Slovenia.\\[2ex]
 \end{nopgbreak}
 }
 
+% ----------------------------------------------------------------------------
 % Georgia font
+% ----------------------------------------------------------------------------
 
 \if \@georgia 1
   \RequirePackage{mathgifg}
@@ -259,12 +298,9 @@ License Slovenia.\\[2ex]
   \fi
 \fi 
 
-% Tables
-
-\RequirePackage{colortbl}
-\RequirePackage{booktabs}
-\newcommand{\rowline}[0]{%
-\arrayrulecolor{lightgray}\midrule\arrayrulecolor{black}}
+% ----------------------------------------------------------------------------
+% Document structure
+% ----------------------------------------------------------------------------
 
 \AtBeginDocument{
 \maketitle

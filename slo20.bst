@@ -1,3 +1,13 @@
+% Slovenscina 2.0 LaTeX bibliography style file
+% (c) 2015 Jan Snajder
+% Version: 1.0, 2015-08-25
+% Adapted from 'apalike' style
+%
+% Change log:
+%   2015-08-26 (Jan Snajder)   First version
+%
+% ---
+% 
 % BibTeX `apalike' bibliography style (version 0.99a, 8-Dec-10), adapted from
 % the `alpha' style, version 0.99a; for BibTeX version 0.99a.
 %
