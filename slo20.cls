@@ -1,9 +1,10 @@
 % Slovenscina 2.0 LaTeX class definition
 % (c) 2015 Jan Snajder
-% Version: 1.0, 2015-08-25
+% Version: 1.1, 2015-11-29
 %
 % Change log:
 %   2015-08-26 (Jan Snajder)   First version
+%   2015-11-29 (Jan Snajder)   Switched to APA citation style, minor fixes
 %
 
 % ----------------------------------------------------------------------------
@@ -11,12 +12,14 @@
 % ----------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{slo20}[2015/08/25 Slovenscina 2.0 class]
+\ProvidesClass{slo20}[2015/11/29 Slovenscina 2.0 class]
 
 \typeout{--- Slovenscina 2.0 LaTeX class ---}
 \typeout{(c) 2015 Jan Snajder}
-\typeout{Version: 1.0, 2015-08-25}
+\typeout{Version: 1.1, 2015-11-29}
 
+%\RequirePackage{cmap}
+\RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
 % ----------------------------------------------------------------------------
@@ -122,7 +125,6 @@
 \RequirePackage[usenames,dvipsnames]{color}
 \definecolor{slogray}{rgb}{0.35,0.35,0.35}
 \definecolor{lightgray}{rgb}{0.75,0.75,0.75}
-\newcommand{\slourl}[1]{{\footnotesize\textcolor{slogray}{#1}}}
 
 \RequirePackage{microtype}
 
@@ -155,17 +157,15 @@
 % Footnotes
 % ----------------------------------------------------------------------------
 
-\RequirePackage[hang,flushmargin]{footmisc} 
+\RequirePackage[hang,flushmargin,bottom]{footmisc} 
 \renewcommand{\footnotemargin}{0.00001pt}
 \renewcommand{\footnotelayout}{\hspace{7pt}}
 
-% ----------------------------------------------------------------------------
-% URLs
-% ----------------------------------------------------------------------------
+\def\footnoterule{\kern3\p@
+  \hrule\@width 11pc\kern14\p@\kern-\footnotesep}
 
-\RequirePackage{url}
-\RequirePackage{relsize}
-\renewcommand\UrlFont{\smaller[1]\color{slogray}\rmfamily}
+\addtolength{\footnotesep}{1mm}
+%\setlength{\footskip}{1cm}
 
 % ----------------------------------------------------------------------------
 % Tables
@@ -188,30 +188,26 @@
 % Language
 % ----------------------------------------------------------------------------
 
-\if\@slovene1\RequirePackage[slovene]{babel}\fi
+\if\@slovene1\RequirePackage[slovene]{babel}
+\else\RequirePackage[british]{babel}\fi
 
 % ----------------------------------------------------------------------------
 % Bibliography
 % ----------------------------------------------------------------------------
 
-\RequirePackage{natbib}
-\renewcommand*{\bibfont}{\raggedright} 
+\usepackage[style=apa,backend=biber,block=ragged]{biblatex}
 \setlength{\bibhang}{1cm}
-\def\biband{\if\@slovene1{in}\else{\&}\fi}
-\def\bibetal{\if\@slovene1{idr.}\else{et~al.}\fi}
-\def\bibin{\if\@slovene1{V}\else{In}\fi}
-\def\bibeditor{\if\@slovene1{ur.}\else{Ed.}\fi}
-\def\bibeditors{\if\@slovene1{ur.}\else{Eds.}\fi}
-\def\bibpage{\if\@slovene1{stran}\else{page}\fi}
-\def\bibpages{\if\@slovene1{strani}\else{pages}\fi}
-\def\bibvolume{\if\@slovene1{Zvezek}\else{Volume}\fi}
-\def\bibof{\if\@slovene1{od}\else{of}\fi}
-\def\biboxfordcomma{\if\@slovene1{}\else{,}\fi}
-\def\bibretrieved{\if\@slovene1{Pridobljeno}\else{Retrieved}\fi}
-\def\bibretrievedfrom{\if\@slovene1{.~s}\else{, from}\fi}
-\def\bibnodate{\if\@slovene1{n.~p.}\else{n.~d.}\fi}
-\if\@english1{\renewcommand{\refname}{\textls*[110]{BIBLIOGRAPHY}}\else{%
-\addto{\captionsslovene}{\renewcommand{\refname}{\textls*[110]{LITERATURA}}}}\fi
+\if\@slovene1\DeclareLanguageMapping{slovene}{slovene-apa}
+\else\DeclareLanguageMapping{british}{british-apa}\fi
+\appto{\biburlsetup}{\renewcommand*{\UrlFont}{\footnotesize\color{slogray}}}
+
+% ----------------------------------------------------------------------------
+% URLs
+% ----------------------------------------------------------------------------
+
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{relsize}
+\renewcommand\UrlFont{\smaller[1]\color{slogray}\rmfamily}
 
 % ----------------------------------------------------------------------------
 % Front matter
@@ -229,7 +225,7 @@
 \end{flushleft}
 \vspace{-0.8em}
 {\small\begin{spacing}{1.2}\emph{\@authorsshort~(\@pubyear): \@title. Slovenščina 2.0, \@volume\,(\@issue): \@pagefrom--\@pageto.\\
-URL: \slourl{\@puburl}.}\end{spacing}}
+URL: \url{\@puburl}.}\end{spacing}}
 \vspace*{-0.1em}
 \begin{center}
 \begin{minipage}{11cm}
@@ -284,8 +280,8 @@ Deljenje pod enakimi pogoji 2.5 Slovenija.
 
 This work is licensed under the Creative Commons Attribution ShareAlike 2.5
 License Slovenia.\\[2ex]
-\slourl{http://creativecommons.org/licenses/by-sa/2.5/si/}\\[3.5ex]
-\includegraphics[scale=0.8]{cc.png}
+\url{http://creativecommons.org/licenses/by-sa/2.5/si/}\\[3.5ex]
+\includegraphics[scale=0.6]{cc-by-sa.pdf}
 \end{center}
 \end{nopgbreak}
 }
@@ -299,6 +295,8 @@ License Slovenia.\\[2ex]
   \ifpdf
      \pdfmapfile{+mathgifg.map}
   \fi
+\else
+  \RequirePackage{lmodern}
 \fi 
 
 % ----------------------------------------------------------------------------
