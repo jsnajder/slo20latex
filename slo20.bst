@@ -58,6 +58,8 @@ ENTRY
     edition
     editor
     howpublished
+    url
+    urldate
     institution
     journal
     key
@@ -691,7 +693,10 @@ FUNCTION {misc}
   new.block
   format.title output
   new.block
-  howpublished output
+  "\bibretrieved\ " output
+  urldate *
+  "\bibretrievedfrom\ " *
+  url *
   new.block
   note output
   fin.entry

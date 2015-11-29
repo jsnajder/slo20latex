@@ -134,7 +134,7 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[LO,LE]{{\small\textcolor{slogray}{\emph{Slovenščina 2.0}, \@issue\ (\@pubyear)}}}
+\fancyhead[LO,LE]{{\small\textcolor{slogray}{\emph{Slovenščina 2.0}, \@issue\ (\@pubyear): \@pagefrom--\@pageto}}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyfoot[CO,CE]{[\hspace{0.2ex}\thepage\hspace{0.2ex}]}
@@ -197,16 +197,19 @@
 \RequirePackage{natbib}
 \renewcommand*{\bibfont}{\raggedright} 
 \setlength{\bibhang}{1cm}
-\def\biband{\if\@slovene1{in}\else{and}\fi}
+\def\biband{\if\@slovene1{in}\else{\&}\fi}
 \def\bibetal{\if\@slovene1{idr.}\else{et~al.}\fi}
 \def\bibin{\if\@slovene1{V}\else{In}\fi}
-\def\bibeditor{\if\@slovene1{urednik}\else{editor}\fi}
-\def\bibeditors{\if\@slovene1{uredniki}\else{editors}\fi}
+\def\bibeditor{\if\@slovene1{ur.}\else{Ed.}\fi}
+\def\bibeditors{\if\@slovene1{ur.}\else{Eds.}\fi}
 \def\bibpage{\if\@slovene1{stran}\else{page}\fi}
 \def\bibpages{\if\@slovene1{strani}\else{pages}\fi}
 \def\bibvolume{\if\@slovene1{Zvezek}\else{Volume}\fi}
 \def\bibof{\if\@slovene1{od}\else{of}\fi}
 \def\biboxfordcomma{\if\@slovene1{}\else{,}\fi}
+\def\bibretrieved{\if\@slovene1{Pridobljeno}\else{Retrieved}\fi}
+\def\bibretrievedfrom{\if\@slovene1{.~s}\else{, from}\fi}
+\def\bibnodate{\if\@slovene1{n.~p.}\else{n.~d.}\fi}
 \if\@english1{\renewcommand{\refname}{\textls*[110]{BIBLIOGRAPHY}}\else{%
 \addto{\captionsslovene}{\renewcommand{\refname}{\textls*[110]{LITERATURA}}}}\fi
 
