@@ -74,6 +74,8 @@
   \def\@pageto{#2}}
 \def\@puburl{http://www.trojina.org/slovenscina.20/arhiv/\@pubyear/\@issue/ Slo2.0\_\@pubyear\_\@issue\_\@pubnum.pdf}
 \newcommand{\puburl}[1]{\def\@puburl{#1}}
+\def\@pubdoi{http://dx.doi.org/10.4312/slo2.0.\@pubyear.\@issue.\@pagefrom-\@pageto}
+\newcommand{\pubdoi}[1]{\def\@pubdoi{#1}}
 \def\@title{}
 \renewcommand{\title}[1]{\def\@title{#1}}
 \def\@naslov{}
@@ -136,7 +138,8 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[LO,LE]{{\small\textcolor{slogray}{\emph{Slovenščina 2.0}, \@issue\ (\@pubyear): \@pagefrom--\@pageto}}}
+\fancyhead[LO,LE]{{\small\textcolor{slogray}{\emph{Slovenščina 2.0}, \@issue\ (\@pubyear)}}}
+%\fancyhead[LO,LE]{{\small\textcolor{slogray}{\emph{Slovenščina 2.0}, \@issue\ (\@pubyear): \@pagefrom--\@pageto}}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyfoot[CO,CE]{[\hspace{0.2ex}\thepage\hspace{0.2ex}]}
@@ -199,6 +202,7 @@
 \setlength{\bibhang}{1cm}
 \if\@slovene1\DeclareLanguageMapping{slovene}{slovene-apa}
 \else\DeclareLanguageMapping{british}{british-apa}\fi
+\DeclareFieldFormat{apacase}{#1}
 \appto{\biburlsetup}{\renewcommand*{\UrlFont}{\footnotesize\color{slogray}}}
 
 % ----------------------------------------------------------------------------
@@ -225,7 +229,8 @@
 \end{flushleft}
 \vspace{-0.8em}
 {\small\begin{spacing}{1.2}\emph{\@authorsshort~(\@pubyear): \@title. Slovenščina 2.0, \@volume\,(\@issue): \@pagefrom--\@pageto.\\
-URL: \url{\@puburl}.}\end{spacing}}
+DOI: \url{\@pubdoi}.}\end{spacing}}
+%URL: \url{\@puburl}.}\end{spacing}}
 \vspace*{-0.1em}
 \begin{center}
 \begin{minipage}{11cm}
@@ -275,12 +280,16 @@ URL: \url{\@puburl}.}\end{spacing}}
 \newcommand{\makelicense}[0]{%
 \begin{nopgbreak}
 \begin{center}
-To delo je ponujeno pod licenco Creative Commons: Priznanje avtorstva --
-Deljenje pod enakimi pogoji 2.5 Slovenija.
 
-This work is licensed under the Creative Commons Attribution ShareAlike 2.5
-License Slovenia.\\[2ex]
-\url{http://creativecommons.org/licenses/by-sa/2.5/si/}\\[3.5ex]
+To delo je ponujeno pod licenco Creative Commons: Priznanje avtorstva --
+Deljenje pod enakimi pogoji 4.0 Mednarodna.
+
+This work is licensed under the Creative Commons Attribution -- ShareAlike 4.0
+International.\\[2ex]
+
+https://creativecommons.org/licenses/by-sa/4.0/
+
+\url{https://creativecommons.org/licenses/by-sa/4.0/}\\[3.5ex]
 \includegraphics[scale=0.6]{cc-by-sa.pdf}
 \end{center}
 \end{nopgbreak}
