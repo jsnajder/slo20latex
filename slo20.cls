@@ -1,10 +1,11 @@
 % Slovenscina 2.0 LaTeX class definition
 % (c) 2015 Jan Snajder
-% Version: 1.1, 2015-11-29
+% Version: 1.2, 2016-12-06
 %
 % Change log:
 %   2015-08-26 (Jan Snajder)   First version
 %   2015-11-29 (Jan Snajder)   Switched to APA citation style, minor fixes
+%   2016-12-06 (Jan Snajder)   Added DOI and CC 4.0 license
 %
 
 % ----------------------------------------------------------------------------
@@ -286,8 +287,6 @@ Deljenje pod enakimi pogoji 4.0 Mednarodna.
 
 This work is licensed under the Creative Commons Attribution -- ShareAlike 4.0
 International.\\[2ex]
-
-https://creativecommons.org/licenses/by-sa/4.0/
 
 \url{https://creativecommons.org/licenses/by-sa/4.0/}\\[3.5ex]
 \includegraphics[scale=0.6]{cc-by-sa.pdf}
